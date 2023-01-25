@@ -1,0 +1,76 @@
+:root {
+    --mainblue: #00aff0
+}
+
+body {
+    font-family: "Open Sans";
+    background-color: #212529;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+    place-items: center;
+}
+
+h1 {
+    position: relative;
+    margin-left: 20vw;
+    margin-right: 20vw;
+}
+
+.dot-flashing {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: var(--mainblue);
+    color: var(--mainblue);
+    animation: dot-flashing 1s infinite linear alternate;
+    animation-delay: 0.5s;
+    bottom: 35vh;
+}
+
+.dot-flashing::before,
+.dot-flashing::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+}
+
+.dot-flashing::before {
+    left: -15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: var(--mainblue);
+    color: var(--mainblue);
+    animation: dot-flashing 1s infinite alternate;
+    animation-delay: 0s;
+}
+
+.dot-flashing::after {
+    left: 15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: var(--mainblue);
+    color: var(--mainblue);
+    animation: dot-flashing 1s infinite alternate;
+    animation-delay: 1s;
+}
+
+@keyframes dot-flashing {
+    0% {
+        background-color: var(--mainblue);
+    }
+
+    50%,
+    100% {
+        background-color: #00aff033;
+    }
+}
